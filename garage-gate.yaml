@@ -1,0 +1,94 @@
+esphome:
+  name: garazovartai
+  friendly_name: garazoVartai
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret device_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  use_address: 192.0.2.10
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  #ap:
+   # ssid: "Garazovartai Fallback Hotspot"
+    #password: !secret device_password
+
+
+#captive_portal:
+
+mqtt:
+  broker: 192.0.2.20
+  port: 1883
+  discover_ip: False
+  discovery_unique_id_generator: mac
+  discovery_object_id_generator: device_name
+  custom_mac: "02:00:00:00:00:01"
+
+ 
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP Address"
+    mac_address:
+      name: "Real MAC"
+
+binary_sensor:
+  - platform: gpio
+    name: "Kiemo vartÅ³ mygtukas"
+    pin:
+      number: GPIO39
+      inverted: true
+      mode:
+        input: true
+        # pullup: true
+
+  - platform: gpio
+    name: "GaraÅ¾o vartÅ³ mygtukas"
+    pin:
+      number: GPIO38
+      inverted: true
+      mode:
+        input: true
+        # pullup: true
+
+  - platform: gpio
+    name: "AbiejÅ³ vartÅ³ mygtukas"
+    pin:
+      number: GPIO37
+      inverted: true
+      mode:
+        input: true
+        # pullup: true
+    
+
+switch:
+  - platform: gpio
+    pin: GPIO23
+    name: "GaraÅ¾o vartai"
+    id: sw_garazo_vartai
+
+  - platform: gpio
+    pin: GPIO22
+    name: "Kiemo vartai"
+    id: sw_kiemo_vartai
+
+  - platform: gpio
+    pin: GPIO21
+    name: "Abu vartai"
+    id: sw_abu_vartai
