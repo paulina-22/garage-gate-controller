@@ -1,9 +1,9 @@
 # Garage Gate Controller
 
-University IoT project developed collaboratively by Paulina (@paulina-22) and a teammate: an ESPHome configuration for an ESP32 garage and yard gate control prototype with Home Assistant integration.
+My teammate and I developed this university IoT project together. We used ESPHome and an ESP32 to create a garage and yard gate control prototype with Home Assistant integration.
 
 ## Collaboration and authorship
-This was a shared university project, not entirely Paulina's individual work. The repository presents the team's prototype; it does not claim that Paulina independently authored every part of the code, configuration or system design.
+We collaborated on this project, and this repository presents our shared prototype. I contributed as a team member; the code, configuration and system design are our joint work, with contributions from both of us.
 
 ## Contents
 - `garage-gate.yaml`: prototype configuration with GPIO inputs and switches.
@@ -18,4 +18,4 @@ This was a shared university project, not entirely Paulina's individual work. Th
 `secrets.yaml` is excluded from Git. Addresses in the configuration are documentation placeholders. No original passwords or encryption keys are included.
 
 ## Prototype limitations
-This is a preserved university prototype, not a finished gate controller. The original MQTT options and GPIO37/38/39 assignments require verification for the chosen ESP32 board and ESPHome version. The configuration has not been tested on hardware as part of this upload preparation.
+Our project is a university prototype. The original MQTT options and GPIO37/38/39 assignments require verification for the chosen ESP32 board and ESPHome version. The configuration has not been tested on hardware as part of this upload preparation.
